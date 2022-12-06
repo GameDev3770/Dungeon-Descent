@@ -25,10 +25,12 @@ public class PathFinderAPI : MonoBehaviour
 
         this.aStar = new AStar(this.grid, debug_coords);
     }
-
-    public List<Node> GetPathing(GameObject StartObject, GameObject EndObject) {
+    public List<Node> GetPathing(Vector3 StartObject, Vector3 EndObject) {
         return this.GetPathing(GetNode(StartObject), GetNode(EndObject));
     }
+    public List<Node> GetPathing(GameObject StartObject, Vector3 EndObject)     { return this.GetPathing(GetNode(StartObject), GetNode(EndObject)); }
+    public List<Node> GetPathing(Vector3 StartObject, GameObject EndObject)     { return this.GetPathing(GetNode(StartObject), GetNode(EndObject)); }
+    public List<Node> GetPathing(GameObject StartObject, GameObject EndObject)  { return this.GetPathing(GetNode(StartObject), GetNode(EndObject)); }
 
     public List<Node> GetPathing(Node StartNode, Node EndNode) {
         try {
@@ -40,6 +42,10 @@ public class PathFinderAPI : MonoBehaviour
 
     public Node GetNode(GameObject gameobject) {
         return this.grid.GetNode(gameobject.transform.position);
+        //return this.grid.GetNode(gameobject.transform.position.x, gameobject.transform.position.z);
+    }
+    public Node GetNode(Vector3 vector) {
+        return this.grid.GetNode(vector);
         //return this.grid.GetNode(gameobject.transform.position.x, gameobject.transform.position.z);
     }
 
