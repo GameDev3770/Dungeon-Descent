@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PathFinderAPI : MonoBehaviour
     public bool debug;
     public bool gizmos;
     public bool handles;
+    public float[] debug_coords = new float[2];
 
     public Layer[] WalkableLayers = new Layer[0];
     public Layer[] UnWalkableLayers = new Layer[0];
@@ -21,7 +23,7 @@ public class PathFinderAPI : MonoBehaviour
         this.grid = new Grid(debug, gizmos, handles, WalkableLayers, UnWalkableLayers, nodeScale);
         this.grid.BuildGrid(gameObject);
 
-        this.aStar = new AStar(this.grid);
+        this.aStar = new AStar(this.grid, debug_coords);
     }
 
     public List<Node> GetPathing(GameObject StartObject, GameObject EndObject) {
@@ -29,7 +31,11 @@ public class PathFinderAPI : MonoBehaviour
     }
 
     public List<Node> GetPathing(Node StartNode, Node EndNode) {
-        return this.aStar.FindPath(StartNode, EndNode);
+        try {
+            return this.aStar.FindPath(StartNode, EndNode);
+        } catch (NullReferenceException) {
+            return new List<Node>();
+        }
     }
 
     public Node GetNode(GameObject gameobject) {

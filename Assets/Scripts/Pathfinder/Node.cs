@@ -49,7 +49,7 @@ public class Node
     public float GetDistance(Node target) {
         float dstX = Mathf.Abs(this.x - target.x);
         float dstY = Mathf.Abs(this.y - target.y);
-        return (dstX > dstY) ? 14 * dstY + 10 * (dstX - dstY) : 14 * dstX + 10 * (dstY - dstX);
+        return (dstX > dstY) ? 10 * dstY + 10 * (dstX - dstY) : 10 * dstX + 10 * (dstY - dstX);
     }
 
     public Node[] Directions {
@@ -75,7 +75,7 @@ public class Node
                 this.Coordinates[2] <= y && y <= this.Coordinates[3];
     }
 
-    private void OnMouseDown() {
-        Console.WriteLine($"{this.gCost}   {this.hCost}   {this.fCost}");
+    public bool Equals(Node node) {
+        return this == node;
     }
 }
