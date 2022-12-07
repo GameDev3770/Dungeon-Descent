@@ -9,15 +9,23 @@ using UnityEngine.UIElements.Experimental;
 
 public class Bar : MonoBehaviour {
 
+    // Max Value and Min Value are self explanatory, They are both meant to be inclusive.
+
     public float MaxValue = 1;
     public float MinValue = 0;
 
+    // Value Stores the Current value the slider is meant to hold. (It will be shown as a solid colour).
     public float Value = 0;
+    // BufferValue holds a theoretical change to the Value. (It will be represented by a translucent version of the Value Colour)
     public float BufferValue = 0;
 
     GameObject NormalBar;
     GameObject SecondaryBar;
     GameObject Text;
+
+    [Range(0, 1)]
+    public float alpha = 0.75f;
+    public Color color;
 
 
 
@@ -26,6 +34,10 @@ public class Bar : MonoBehaviour {
         NormalBar = transform.GetChild(0).gameObject;
         SecondaryBar = transform.GetChild(1).gameObject;
         Text = transform.GetChild(2).gameObject;
+
+        NormalBar.GetComponent<Image>().color = color;
+        SecondaryBar.GetComponent<Image>().color = new Color(color.r, color.g, color.b, alpha);
+
     }
 
     // Update is called once per frame
