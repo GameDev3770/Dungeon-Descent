@@ -50,13 +50,13 @@ public class Bar : MonoBehaviour {
         float anchoredPositionChangeNB = sizeDeltaChangeNB / 2;
 
         NormalBar.GetComponent<RectTransform>().sizeDelta = new Vector2(sizeDeltaChangeNB, BarSize.sizeDelta[1]);
-        NormalBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredPositionChangeNB, BarSize.anchoredPosition[1]);
+        NormalBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredPositionChangeNB, 0);
 
         float sizeDeltaChangeSB = -1 * (BarSize.sizeDelta[0] - (BarSize.sizeDelta[0] * SecondaryBarPercent));
         float anchoredPositionChangeSB = sizeDeltaChangeSB / 2;
 
         SecondaryBar.GetComponent<RectTransform>().sizeDelta = new Vector2(sizeDeltaChangeSB, BarSize.sizeDelta[1]);
-        SecondaryBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredPositionChangeSB, BarSize.anchoredPosition[1]);
+        SecondaryBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredPositionChangeSB, 0);
 
         Text.GetComponent<Text>().text = $"{PercentValue(SecondaryBarPercent)}%" + ((BufferValue != 0) ? $" ({PercentValue(NormalBarPercent)}%)" : "");
     }
@@ -69,6 +69,9 @@ public class Bar : MonoBehaviour {
         if (MinValue >= MaxValue) MaxValue = MinValue + 1;
         if (Value < MinValue) Value = MinValue;
         if (Value > MaxValue) Value = MaxValue;
+
+        if (Value - BufferValue > MaxValue) BufferValue = Value - MaxValue;
+        if (Value - BufferValue < MinValue) BufferValue = Value - MinValue;
 
         Start();
         UpdateBar();
