@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.03260517, a: 0.72156864}
+  m_Color: {r: 0.0047715902, g: 1, b: 0, a: 0.75}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.03260517, a: 1}
+  m_Color: {r: 0.0047715902, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -241,9 +241,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3816561903693480148}
+  - component: {fileID: 2510531483084209577}
   - component: {fileID: 5284657145944020367}
   - component: {fileID: 2001165641417798085}
-  - component: {fileID: 2510531483084209577}
   m_Layer: 5
   m_Name: Bar
   m_TagString: Untagged
@@ -274,6 +274,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2510531483084209577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791199865882639217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1587a003c2a942b498faadf74765bbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxValue: 10
+  MinValue: 0
+  Value: 9.82
+  BufferValue: 0.02
+  alpha: 0.75
+  color: {r: 0.0047715902, g: 1, b: 0, a: 1}
 --- !u!222 &5284657145944020367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -312,19 +330,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2510531483084209577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791199865882639217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1587a003c2a942b498faadf74765bbf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxValue: 10
-  MinValue: 0
-  Value: 9.82
-  BufferValue: 0.02
