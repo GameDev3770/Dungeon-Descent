@@ -20,7 +20,7 @@ public class Bar : MonoBehaviour {
 
     [Range(0, 1)]
     public float alpha = 0.75f;
-    public Color color;
+    public Color colour;
 
 
 
@@ -30,8 +30,8 @@ public class Bar : MonoBehaviour {
         SecondaryBar = transform.GetChild(1).gameObject;
         Text = transform.GetChild(2).gameObject;
 
-        NormalBar.GetComponent<Image>().color = color;
-        SecondaryBar.GetComponent<Image>().color = new Color(color.r, color.g, color.b, alpha);
+        NormalBar.GetComponent<Image>().color = colour;
+        SecondaryBar.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, alpha);
 
     }
 
